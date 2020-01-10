@@ -30,7 +30,7 @@
     "minify": "^3.0.2",
     "moment": "^2.10.3",
     "mongod": "^2.0.0",
-    "mongodb": "^3.0.1",
+    "mongodb": "^3.4.1",
     "mongoose": "^4.13.7",
     "morgan": "^1.9.1",
     "nodemailer": "^1.4.0",
