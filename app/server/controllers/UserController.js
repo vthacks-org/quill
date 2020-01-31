@@ -624,10 +624,19 @@ UserController.leaveTeam = function(id, callback) {
  * @param {Object}    data      Data for the email template.
  * @param {Function}  callback  args(err, users)
  */
-UserController.sendEmailToAllUsers = function(data, callback) {
+UserController.sendEmailToAllUsers = function(data, statusFilters = {}, callback) {
+    Object.keys(statusFilters).forEach((k) => {
+        statusFilters[k] = '' + statusFilters[k];
+    });
+    
+    var textQueries = buildTextQueries("");
+    var statusQueries = buildStatusQueries(statusFilters);
+    var findQuery = buildFindQuery(textQueries, statusQueries);
+
     // Currently sends to all users. We can filter useing the input
     // to User.find if needed (ex: {admin: false});
-    User.find({ 'status.admitted': true })
+    console.log(statusFilters, statusQueries, textQueries, findQuery);
+    User.find(findQuery)
         .select('email')
         .exec(function(err, users) {
             if (err || !users) {

@@ -5,6 +5,6 @@ app/client/plugins/
 www/
 .sass-cache/*
 *.log
-.env
+*env
 update*.sh
 .DS_Store

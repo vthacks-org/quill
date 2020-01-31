@@ -426,7 +426,7 @@ module.exports = function(router) {
    *
    */
   router.put('/users/emailallusers', isAdmin, function(req, res){
-    UserController.sendEmailToAllUsers(req.body.data, defaultResponse(req, res));
+    UserController.sendEmailToAllUsers(req.body.data, req.body.filters, defaultResponse(req, res));
   });
 
 };

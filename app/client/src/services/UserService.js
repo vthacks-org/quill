@@ -104,9 +104,10 @@ angular.module('reg')
         return $http.post(base + id + '/checkout');
       },
 
-      emailAllUsers: function(data) {
+      emailAllUsers: function(data, statusFilters) {
         return $http.put(base + 'emailallusers', {
           data: data,
+          filters: statusFilters
         });
       },
 

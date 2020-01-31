@@ -9,6 +9,10 @@ angular.module('reg')
 
       _setupForm();
 
+      function applyStatusFilter(){
+
+      }
+
       function _setupForm(){
         // Semantic-UI form validation
         $('.ui.form').form({
@@ -48,15 +52,15 @@ angular.module('reg')
         if ($('.ui.form').form('is valid')){
           swal({
             title: "Whoa, wait a minute!",
-            text: "You are about to email everyone!",
+            text: "You are about to email a lot of people!",
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Yes, email everyone.",
+            confirmButtonText: "Yes, email a lot.",
             closeOnConfirm: false
             },
             function(){
-              UserService.emailAllUsers($scope.email).then((res) => {
+              UserService.emailAllUsers($scope.email, $scope.statusFilters).then((res) => {
                 sweetAlert({
                   title: "Awesome!",
                   text: "Your emails have been sent.",
