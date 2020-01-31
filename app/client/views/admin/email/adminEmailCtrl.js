@@ -9,10 +9,6 @@ angular.module('reg')
 
       _setupForm();
 
-      function applyStatusFilter(){
-
-      }
-
       function _setupForm(){
         // Semantic-UI form validation
         $('.ui.form').form({
